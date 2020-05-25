@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import { Row, Col, Spin, Skeleton, PageHeader, Divider } from 'antd'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export class App extends Component {
+  render() {
+    return (
+      <Row >
+       <Col span={24}>
+        <PageHeader
+          className="site-page-header"
+          title="Random Poems"
+        />
+        <Divider> Poems </Divider>
+        <Skeleton active />
+        </Col>
+      </Row>
+    )
+  }
 }
 
-export default App;
+export default App
