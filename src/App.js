@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import './App.css'
 // eslint-disable-next-line
-import { Row, Col, Spin, Skeleton, PageHeader, Divider } from 'antd'
+import {
+  Row,
+  Col,
+  Skeleton,
+  Divider,
+  Typography
+} from 'antd'
 
+
+const { Title, Text } = Typography
 
 export class App extends Component {
 
   state = {
+    isLoading: false,
     poems: [
       {
         "title": "Je Ne Suis Pas De Ceux Qui Robent La Louange",
@@ -56,7 +65,7 @@ export class App extends Component {
     ]
   }
 
-  componentDidMount (){
+  componentDidMount() {
     console.log(this.state.poems);
   }
 
@@ -65,18 +74,21 @@ export class App extends Component {
       <div className='main'>
         <Row gutter={8} >
           <Col className="gutter-row" span={24}>
-            <PageHeader
-              className="site-page-header"
-              title="Random Poems"
-            />
-            <Divider> Poems </Divider>
-            {/* <Skeleton active /> */} {/* Should Render if poems is loading */}
-            {this.state.poems.map((poem, index) => {
-              return (
-                <h1>{poem.title}</h1>
+            <Divider> <Title>Random Poems</Title> </Divider>
+            {this.state.isLoading ?
+              <Skeleton active /> :
+              this.state.poems.map((poem, index) => {
+                return (
+                  <div>
+                  <Title level={3}>{poem.title}</Title>
+                  <Text  className="poem">{poem.content}</Text>
+                  <Text type='secondary' className='author'>{poem.poet.name}</Text>
+                  </div>
+                )
+              }
               )
             }
-            )}
+
           </Col>
         </Row>
       </div>

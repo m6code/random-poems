@@ -1,5 +1,14 @@
 @import '~antd/dist/antd.css';
 
-.main{
+.main {
     margin: 50px 100px 20px 100px;
+}
+
+.poem {
+    justify-content: stretch;
+}
+
+.author {
+    display: block;
+    text-align: right;
 }
