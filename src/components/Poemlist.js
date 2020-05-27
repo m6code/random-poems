@@ -11,9 +11,8 @@ function Poemlist(props) {
             {/* Renders a List of Peom  using the props received from App component  */}
             {props.loading ?
                 <Skeleton active /> :
-                <Poem />
+                <Poem poems={props.poems}/>
             }
-            {/* <Poem poems={props.poems} /> */}
         </div>
     )
 }

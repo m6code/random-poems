@@ -9,6 +9,7 @@ import {
 } from 'antd';
 
 import Poemlist from './components/Poemlist'
+import axios from 'axios';
 
 
 const { Title } = Typography
@@ -16,12 +17,28 @@ const { Title } = Typography
 export class App extends Component {
 
   state = {
-    isLoading: false,
+    isLoading: true,
     poems: []
   }
 
   componentDidMount() {
-    console.log(this.state.poems);
+    this.getPoems()
+  }
+
+  getPoems = () => {
+    // Make resquest to api | set the queried data to state
+    axios.get('https://www.poemist.com/api/v1/randompoems')
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          poems: response.data,
+          isLoading: false
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({isLoading: true});
+      })
   }
 
   render() {
@@ -30,7 +47,7 @@ export class App extends Component {
         <Row gutter={8} >
           <Col className="gutter-row" span={24}>
             <Divider> <Title>Random Poems</Title> </Divider>
-            <Poemlist 
+            <Poemlist
               poems={this.state.poems}
               loading={this.state.isLoading}
             />
