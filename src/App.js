@@ -4,13 +4,14 @@ import './App.css'
 import {
   Row,
   Col,
-  Skeleton,
   Divider,
   Typography
-} from 'antd'
+} from 'antd';
+
+import Poemlist from './components/Poemlist'
 
 
-const { Title, Text } = Typography
+const { Title } = Typography
 
 export class App extends Component {
 
@@ -75,20 +76,10 @@ export class App extends Component {
         <Row gutter={8} >
           <Col className="gutter-row" span={24}>
             <Divider> <Title>Random Poems</Title> </Divider>
-            {this.state.isLoading ?
-              <Skeleton active /> :
-              this.state.poems.map((poem, index) => {
-                return (
-                  <div>
-                  <Title level={3}>{poem.title}</Title>
-                  <Text  className="poem">{poem.content}</Text>
-                  <Text type='secondary' className='author'>{poem.poet.name}</Text>
-                  </div>
-                )
-              }
-              )
-            }
-
+            <Poemlist 
+              poems={this.state.poems}
+              loading={this.state.isLoading}
+            />
           </Col>
         </Row>
       </div>
