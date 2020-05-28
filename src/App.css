@@ -1,11 +1,23 @@
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 @import '~antd/dist/antd.css';
+
+body{
+    background-color: #30404D;
+}
 .poem {
-    justify-content: stretch;
+    justify-content: space-evenly;
+    text-align: justify;
 }
 
+
+
 .author {
-    display: block;
+    /* display: block; */
     text-align: right;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
 }
 
 /*************************
@@ -28,5 +40,8 @@ Media Queries
 @media only screen and (min-width: 1140px) {
     .main {
         margin: 30px 100px 20px 100px
+    }
+    .nav{
+        margin-left: 2.0em;
     }
 }

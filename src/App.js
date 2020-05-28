@@ -2,23 +2,20 @@ import React, { Component } from 'react'
 import './App.css'
 // eslint-disable-next-line
 import {
-  Row,
-  Col,
-  Divider,
-  Typography
-} from 'antd';
-
+  Navbar,
+  NavbarGroup,
+  NavbarHeading,
+} from "@blueprintjs/core";
 import Poemlist from './components/Poemlist'
 import axios from 'axios';
 
-
-const { Title } = Typography
 
 export class App extends Component {
 
   state = {
     isLoading: true,
-    poems: []
+    poems: [],
+    theme: '-dark'
   }
 
   componentDidMount() {
@@ -37,23 +34,26 @@ export class App extends Component {
       })
       .catch((error) => {
         console.log(error);
-        this.setState({isLoading: true});
+        this.setState({ isLoading: true });
       })
   }
 
   render() {
     return (
-      <div className='main'>
-        <Row gutter={8} >
-          <Col className="gutter-row" span={24}>
-            <Divider> <Title>Random Poems</Title> </Divider>
-            <Poemlist
-              poems={this.state.poems}
-              loading={this.state.isLoading}
-            />
-          </Col>
-        </Row>
+      <div className={`bp3${this.state.theme}`}>
+        <Navbar>
+          <NavbarGroup align='left'>
+            <NavbarHeading className='nav'><h3 className='bp3-heading'>Random Poems</h3></NavbarHeading>
+          </NavbarGroup>
+        </Navbar>
+        <div className='main'>
+          <Poemlist
+            poems={this.state.poems}
+            loading={this.state.isLoading}
+          />
+        </div>
       </div>
+
     )
   }
 }

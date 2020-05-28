@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@blueprintjs/core": "^3.28.1",
     "antd": "^4.2.5",
     "axios": "^0.19.2",
     "cra-template": "1.0.3",
