@@ -3,17 +3,15 @@
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 @import '~antd/dist/antd.css';
 
-/* body{
-    background-color: #181818;
-} */
+body{
+    background-color: #30404D;
+}
 .poem {
     justify-content: space-evenly;
     text-align: justify;
 }
 
-.nav{
-    margin-left: 2.0em;
-}
+
 
 .author {
     /* display: block; */
@@ -42,5 +40,8 @@ Media Queries
 @media only screen and (min-width: 1140px) {
     .main {
         margin: 30px 100px 20px 100px
+    }
+    .nav{
+        margin-left: 2.0em;
     }
 }

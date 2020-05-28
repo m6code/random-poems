@@ -14,7 +14,8 @@ export class App extends Component {
 
   state = {
     isLoading: true,
-    poems: []
+    poems: [],
+    theme: '-dark'
   }
 
   componentDidMount() {
@@ -39,7 +40,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div className=''>
+      <div className={`bp3${this.state.theme}`}>
         <Navbar>
           <NavbarGroup align='left'>
             <NavbarHeading className='nav'><h3 className='bp3-heading'>Random Poems</h3></NavbarHeading>
