@@ -1,8 +1,5 @@
 import React from 'react'
-import { Typography } from 'antd';
 import PropTypes from 'prop-types';
-
-const { Title, Text } = Typography
 
 function Poem(props) {
     return (
@@ -11,9 +8,9 @@ function Poem(props) {
                 props.poems.map((poem, index) => {
                     return (
                         <div key={index} >
-                            <Title level={3}>{poem.title}</Title>
-                            <Text className="poem">{poem.content}</Text>
-                            <Text type='secondary' className='author'>{poem.poet.name}</Text>
+                            <h3 className="bp3-heading">{poem.title}</h3>
+                            <div className="poem">{poem.content}</div>
+                            <div className='bp3-text-muted author'>{poem.poet.name}</div>
                         </div>
                     )
                 })
