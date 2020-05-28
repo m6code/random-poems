@@ -11,6 +11,10 @@
     text-align: justify;
 }
 
+.nav{
+    margin-left: 2.0em;
+}
+
 .author {
     /* display: block; */
     text-align: right;
