@@ -5,7 +5,7 @@
   "dependencies": {
     "@blueprintjs/core": "^3.28.1",
     "antd": "^4.2.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cra-template": "1.0.3",
     "prop-types": "^15.7.2",
     "props-type": "^1.0.1",
